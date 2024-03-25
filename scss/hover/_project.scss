@@ -1,0 +1,88 @@
+@use "../global" as g;
+
+// Project
+//---------------------
+
+// .p-navigation-global
+.p-navigation-global {
+}
+
+.p-navigation-global__list {
+	display: flex;
+	gap: 40px;
+	align-items: center;
+	justify-content: center;
+}
+
+.p-navigation-global__list-item {
+}
+
+// .p-megaMenu
+.p-megaMenu {
+	&:hover,
+	&:focus-within {
+		.p-megaMenu__inner {
+			display: block;
+		}
+
+		.p-megaMenu__open {
+			opacity: 0.6;
+			&::after {
+				rotate: 180deg;
+			}
+		}
+	}
+}
+
+.p-megaMenu__open {
+	display: flex;
+	gap: 1em;
+	align-items: center;
+	justify-content: center;
+	padding: 20px 20px;
+	line-height: 1;
+	cursor: pointer;
+	transition: opacity 0.3s;
+
+	&::after {
+		padding-bottom: 0.2em;
+		font-weight: 700;
+		content: "\2228";
+		transition: rotate 0.3s;
+	}
+}
+
+.p-megaMenu__inner {
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	display: none;
+	width: 80%;
+	padding-top: 40px;
+	transform: translateX(-50%);
+}
+
+.p-megaMenu__navigation {
+	max-height: calc(100vh - 176px);
+	padding: 100px;
+	overflow: auto;
+	background: #eee;
+	border-radius: 10px;
+}
+
+.p-megaMenu__list {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 10px 30px;
+	width: fit-content;
+	max-width: 600px;
+	margin-inline: auto;
+}
+
+.p-megaMenu__list-item {
+	a {
+		display: inline-block;
+		padding: 20px 20px;
+		@include g.hover;
+	}
+}

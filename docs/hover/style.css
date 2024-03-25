@@ -1,0 +1,95 @@
+@charset "UTF-8";
+
+.l-header {
+  padding-inline: 5%;
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+  position: relative;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.p-navigation-global__list {
+  gap: 40px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.p-megaMenu:hover .p-megaMenu__inner,
+.p-megaMenu:focus-within .p-megaMenu__inner {
+  display: block;
+}
+
+.p-megaMenu:hover .p-megaMenu__open,
+.p-megaMenu:focus-within .p-megaMenu__open {
+  opacity: 0.6;
+}
+
+.p-megaMenu:hover .p-megaMenu__open::after,
+.p-megaMenu:focus-within .p-megaMenu__open::after {
+  rotate: 180deg;
+}
+
+.p-megaMenu__open {
+  gap: 1em;
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  line-height: 1;
+  padding: 20px 20px;
+  transition: opacity 0.3s;
+}
+
+.p-megaMenu__open::after {
+  content: "∨";
+  font-weight: 700;
+  padding-bottom: 0.2em;
+  transition: rotate 0.3s;
+}
+
+.p-megaMenu__inner {
+  display: none;
+  left: 50%;
+  padding-top: 40px;
+  position: absolute;
+  top: 100%;
+  transform: translateX(-50%);
+  width: 80%;
+}
+
+.p-megaMenu__navigation {
+  background: #eee;
+  border-radius: 10px;
+  max-height: calc(100vh - 176px);
+  overflow: auto;
+  padding: 100px;
+}
+
+.p-megaMenu__list {
+  margin-inline: auto;
+  gap: 10px 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 600px;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.p-megaMenu__list-item a {
+  display: inline-block;
+  padding: 20px 20px;
+}
+
+@media (hover: hover) {
+  .p-megaMenu__list-item a {
+    transition: opacity 0.3s;
+  }
+
+  .p-megaMenu__list-item a:hover {
+    opacity: 0.6;
+  }
+}
