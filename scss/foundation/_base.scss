@@ -24,16 +24,6 @@ body {
 	background: g.$cr-bg;
 }
 
-article,
-aside,
-footer,
-header,
-nav,
-section,
-main {
-	display: block;
-}
-
 a {
 	color: inherit;
 	text-decoration: none;
@@ -47,49 +37,9 @@ video {
 	height: auto;
 }
 
-code,
-kbd,
-pre,
-samp {
-	font-family: g.$ff-code;
-	font-size: inherit;
-}
-
 ul,
 ol {
 	list-style: none;
-}
-
-table {
-	width: 100%;
-	table-layout: auto;
-	border-spacing: 0;
-	border-collapse: collapse;
-	border: none;
-}
-
-th,
-td {
-	text-align: left;
-	vertical-align: middle;
-	border: none;
-}
-
-blockquote,
-q {
-	quotes: none;
-}
-
-blockquote::after,
-blockquote::before,
-q::after,
-q::before {
-	content: "";
-	content: none;
-}
-
-address {
-	font-style: normal;
 }
 
 em {

@@ -19,18 +19,29 @@
 
 // .p-megaMenu
 .p-megaMenu {
-	&:hover,
-	&:focus-within {
+	@mixin megaMenuToggle() {
 		.p-megaMenu__inner {
 			display: block;
 		}
 
 		.p-megaMenu__open {
 			opacity: 0.6;
+
 			&::after {
 				rotate: 180deg;
 			}
 		}
+	}
+
+	@media (min-width: 768px) and (hover: hover) {
+		&:hover,
+		&:focus-within {
+			@include megaMenuToggle;
+		}
+	}
+
+	&.is-open {
+		@include megaMenuToggle;
 	}
 }
 

@@ -18,18 +18,15 @@
   justify-content: center;
 }
 
-.p-megaMenu:hover .p-megaMenu__inner,
-.p-megaMenu:focus-within .p-megaMenu__inner {
+.p-megaMenu.is-open .p-megaMenu__inner {
   display: block;
 }
 
-.p-megaMenu:hover .p-megaMenu__open,
-.p-megaMenu:focus-within .p-megaMenu__open {
+.p-megaMenu.is-open .p-megaMenu__open {
   opacity: 0.6;
 }
 
-.p-megaMenu:hover .p-megaMenu__open::after,
-.p-megaMenu:focus-within .p-megaMenu__open::after {
+.p-megaMenu.is-open .p-megaMenu__open::after {
   rotate: 180deg;
 }
 
@@ -70,8 +67,8 @@
 }
 
 .p-megaMenu__list {
-  margin-inline: auto;
   gap: 10px 30px;
+  margin-inline: auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
   max-width: 600px;
@@ -82,6 +79,23 @@
 .p-megaMenu__list-item a {
   display: inline-block;
   padding: 20px 20px;
+}
+
+@media (min-width: 768px) and (hover: hover) {
+  .p-megaMenu:hover .p-megaMenu__inner,
+  .p-megaMenu:focus-within .p-megaMenu__inner {
+    display: block;
+  }
+
+  .p-megaMenu:hover .p-megaMenu__open,
+  .p-megaMenu:focus-within .p-megaMenu__open {
+    opacity: 0.6;
+  }
+
+  .p-megaMenu:hover .p-megaMenu__open::after,
+  .p-megaMenu:focus-within .p-megaMenu__open::after {
+    rotate: 180deg;
+  }
 }
 
 @media (hover: hover) {
