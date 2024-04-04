@@ -22,6 +22,10 @@ body {
 	letter-spacing: g.$ls-base;
 	overflow-wrap: break-word;
 	background: g.$cr-bg;
+
+	@include g.mq("md") {
+		font-size: 1rem;
+	}
 }
 
 a {
@@ -49,6 +53,8 @@ em {
 button {
 	padding: 0;
 	margin: 0;
+	font-size: inherit;
+	color: inherit;
 	background: none;
 	border: none;
 }

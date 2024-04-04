@@ -11,7 +11,7 @@ body {
   background: #fff;
   color: #333;
   font-family: Helvetica Neue, Arial, Hiragino Sans, Hiragino Kaku Gothic ProN, BIZ UDPGothic, Meiryo, sans-serif;
-  font-size: 1rem;
+  font-size: 0.875rem;
   font-weight: 400;
   letter-spacing: 0.08em;
   line-height: 2;
@@ -45,6 +45,8 @@ em {
 button {
   background: none;
   border: none;
+  color: inherit;
+  font-size: inherit;
   margin: 0;
   padding: 0;
 }
@@ -111,6 +113,10 @@ button {
 }
 
 @media (min-width: 768px) {
+  body {
+    font-size: 1rem;
+  }
+
   .l-inner {
     padding-inline: 50px;
     max-width: 1160px;
