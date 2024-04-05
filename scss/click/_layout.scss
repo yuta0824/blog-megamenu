@@ -1,4 +1,14 @@
-@use '../global' as g;
+@use "../global" as g;
 
 // Layout
 //---------------------
+.l-header {
+	position: relative;
+	position: fixed;
+	top: 0;
+	z-index: 100;
+	width: 100%;
+	padding-inline: 3%;
+	background-color: #fff;
+	border-bottom: 1px solid #eee;
+}

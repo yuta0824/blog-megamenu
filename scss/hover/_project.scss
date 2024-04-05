@@ -20,7 +20,6 @@
 
 .p-navigation-global__list-item {
 	a {
-		@include g.hover;
 		padding: 20px 5px;
 		font-weight: 700;
 
@@ -38,8 +37,6 @@
 		}
 
 		.p-megaMenu__open {
-			opacity: 0.6;
-
 			&::after {
 				rotate: 180deg;
 			}
@@ -117,7 +114,6 @@
 		align-items: center;
 		gap: 0.5em;
 		padding: 5px 10px;
-		@include g.hover;
 
 		@include g.mq("md") {
 			padding: 20px 20px;

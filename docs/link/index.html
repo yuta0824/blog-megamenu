@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>クリックで展開するメガメニュー</title>
+	<title>Hoverで展開するメガメニュー</title>
 	<link rel="stylesheet" href="../common.css" />
 	<link rel="stylesheet" href="./style.css" />
 </head>
@@ -14,9 +14,9 @@
 		<nav class="p-navigation-global" aria-label="グローバルメニュー">
 			<ul class="p-navigation-global__list">
 				<li class="js-megaMenu p-navigation-global__list-item p-megaMenu">
-					<button type="button" class="js-button-megaMenu p-megaMenu__open" aria-controls="menu1" aria-expanded="false">当社について</button>
-					<div id="menu1" class="p-megaMenu__inner">
-						<nav  class="p-megaMenu__navigation" aria-label="当社についてのサブメニュー">
+					<button type="button" class="js-button-megaMenu p-megaMenu__open">当社について</button>
+					<div class="p-megaMenu__inner">
+						<nav id="menu1" class="p-megaMenu__navigation" aria-label="当社についてのサブメニュー">
 							<ul class="p-megaMenu__list">
 								<li class="p-megaMenu__list-item"><a href="#">会社概要</a></li>
 								<li class="p-megaMenu__list-item"><a href="#">代表挨拶</a></li>
@@ -26,9 +26,10 @@
 					</div>
 				</li>
 				<li class="js-megaMenu p-navigation-global__list-item p-megaMenu">
-					<button type="button" class="js-button-megaMenu p-megaMenu__open" aria-expanded="false" aria-controls="menu2">お知らせ</button>
-					<div id="menu2" class="p-megaMenu__inner">
-						<nav class="p-megaMenu__navigation" aria-label="メニュー1のサブメニュー">
+					<button type="button" class="js-button-megaMenu p-megaMenu__open" aria-expanded="false"
+						aria-controls="menu2">お知らせ</button>
+					<div class="p-megaMenu__inner">
+						<nav id="menu2" class="p-megaMenu__navigation" aria-label="メニュー1のサブメニュー">
 							<ul class="p-megaMenu__list">
 								<li class="p-megaMenu__list-item"><a href="#">お知らせ一覧</a></li>
 								<li class="p-megaMenu__list-item"><a href="#">ニュースリリース</a></li>
@@ -43,7 +44,7 @@
 	</header>
 	<div class="l-section">
 		<div class="l-inner">
-			<h1 class="c-title">クリックで展開するメガメニュー</h1>
+			<h1 class="c-title">で展開するメガメニュー</h1>
 		</div>
 	</div>
 
