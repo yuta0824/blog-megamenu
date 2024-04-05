@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Hoverで展開するメガメニュー</title>
+	<title>オープントリガーがリンクのメガメニュー</title>
 	<link rel="stylesheet" href="../common.css" />
 	<link rel="stylesheet" href="./style.css" />
 </head>
@@ -14,29 +14,26 @@
 		<nav class="p-navigation-global" aria-label="グローバルメニュー">
 			<ul class="p-navigation-global__list">
 				<li class="js-megaMenu p-navigation-global__list-item p-megaMenu">
-					<button type="button" class="js-button-megaMenu p-megaMenu__open">当社について</button>
-					<div class="p-megaMenu__inner">
-						<nav id="menu1" class="p-megaMenu__navigation" aria-label="当社についてのサブメニュー">
-							<ul class="p-megaMenu__list">
-								<li class="p-megaMenu__list-item"><a href="#">会社概要</a></li>
-								<li class="p-megaMenu__list-item"><a href="#">代表挨拶</a></li>
-								<li class="p-megaMenu__list-item"><a href="#">沿革</a></li>
-							</ul>
-						</nav>
-					</div>
+					<a class="p-megaMenu__link" href="./about">当社について</a>
+					<button type="button" class="js-button-megaMenu p-megaMenu__open" aria-controls="menu1" aria-expanded="false">&or;</button>
+					<nav id="menu1" class="p-megaMenu__navigation" aria-label="当社についてのサブメニュー">
+						<ul class="p-megaMenu__list">
+							<li class="p-megaMenu__list-item"><a href="#">会社概要</a></li>
+							<li class="p-megaMenu__list-item"><a href="#">代表挨拶</a></li>
+							<li class="p-megaMenu__list-item"><a href="#">沿革</a></li>
+						</ul>
+					</nav>
 				</li>
 				<li class="js-megaMenu p-navigation-global__list-item p-megaMenu">
-					<button type="button" class="js-button-megaMenu p-megaMenu__open" aria-expanded="false"
-						aria-controls="menu2">お知らせ</button>
-					<div class="p-megaMenu__inner">
-						<nav id="menu2" class="p-megaMenu__navigation" aria-label="メニュー1のサブメニュー">
-							<ul class="p-megaMenu__list">
-								<li class="p-megaMenu__list-item"><a href="#">お知らせ一覧</a></li>
-								<li class="p-megaMenu__list-item"><a href="#">ニュースリリース</a></li>
-								<li class="p-megaMenu__list-item"><a href="#">採用情報</a></li>
-							</ul>
-						</nav>
-					</div>
+					<a class="p-megaMenu__link" href="./news/">お知らせ</a>
+					<button type="button" class="js-button-megaMenu p-megaMenu__open" aria-expanded="false" aria-controls="menu2">&or;</button>
+					<nav id="menu2" class="p-megaMenu__navigation" aria-label="メニュー1のサブメニュー">
+						<ul class="p-megaMenu__list">
+							<li class="p-megaMenu__list-item"><a href="#">お知らせ一覧</a></li>
+							<li class="p-megaMenu__list-item"><a href="#">ニュースリリース</a></li>
+							<li class="p-megaMenu__list-item"><a href="#">採用情報</a></li>
+						</ul>
+					</nav>
 				</li>
 				<li class="p-navigation-global__list-item"><a href="#">お問い合わせ</a></li>
 			</ul>
@@ -44,7 +41,7 @@
 	</header>
 	<div class="l-section">
 		<div class="l-inner">
-			<h1 class="c-title">で展開するメガメニュー</h1>
+			<h1 class="c-title">オープントリガーがリンクのメガメニュー</h1>
 		</div>
 	</div>
 
@@ -52,3 +49,243 @@
 </body>
 
 </html>
+
+<style>
+
+
+
+/* 下向き矢印のとこまでリンクエリアを広げる */
+.l-header .nav_list a:not(:last-child) {
+	position: relative;
+}
+
+.l-header .nav_list a:not(:last-child)::after {
+	content: "";
+	position: absolute;
+	inset: 0 -2em 0 0;
+}
+
+
+.l-header .nav_list a:not(:last-child) {
+	padding-right: 0;
+}
+
+
+.l-header .nav_list button {
+	width: 3.2em;
+	padding: 1em 2em 1em .5em;
+	color: inherit;
+	line-height: 0;
+}
+
+
+.is-touch .l-header .nav_list button {
+	position: relative;
+}
+
+
+.l-header .nav_list button svg {
+	pointer-events: none;
+	width: .5em;
+	height: .5em;
+	fill: none;
+	stroke: currentcolor;
+	stroke-width: 2;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+}
+
+
+.l-header .nav_sub {
+	line-height: 1;
+}
+.l-header .nav_sub a::before {
+	content: "";
+	display: inline-block;
+	width: .4em;
+	margin-right: .6em;
+	border-top: 1px solid currentcolor;
+	vertical-align: middle;
+}
+@media (hover) {
+	.l-header .nav_list a {
+		transition: color .4s;
+	}
+	.l-header .nav_list a:hover {
+		color: #86c0de;
+		transition-duration: .1s;
+	}
+}
+@media print, (min-width: 768px) {
+	.l-header {
+		grid-auto-flow: column;
+		justify-content: space-between;
+		z-index: 1;
+		height: 80px;
+	}
+	.l-header .nav_toggle {
+		display: none;
+	}
+	.l-header .nav_list li {
+		display: flex;
+	}
+	.l-header .nav_list > li:last-child {
+		margin-right: -1em;
+	}
+	.l-header .nav_list > li > a {
+		display: flex;
+		align-items: center;
+		height: 80px;
+	}
+
+	.l-header .nav_sub {
+		display: flex;
+		pointer-events: none;
+		z-index: -1;
+		position: absolute;
+		top: 100%;
+		right: -1em;
+		left: -1em;
+		clip-path: inset(0 -50vw 100%);
+		padding: 1em;
+		border-image: linear-gradient(#fffc 0 0) 0 fill / 0 / 0 50vw;
+	}
+	/* カーソルを乗せるとドロップダウンする */
+	@media (hover) {
+		.l-header .nav_sub {
+			transition: clip-path .4s var(--easeInOut);
+		}
+		.l-header .nav_list li:hover .nav_sub {
+			pointer-events: auto;
+			clip-path: inset(0 -50vw);
+		}
+		.l-header .nav_list li:hover svg {
+			color: #86c0de;
+		}
+	}
+	/* JavaScript で .is-open を付けてドロップダウンする */
+	.l-header .nav_sub.is-anim {
+		transition: clip-path .4s var(--easeInOut);
+	}
+	.l-header .nav_sub.is-open {
+		pointer-events: auto;
+		clip-path: inset(0 -50vw);
+	}
+	.l-header .nav_list li.is-active svg {
+		color: #86c0de;
+	}
+}
+@media screen and (max-width: 767px) {
+	.l-header {
+		justify-content: center;
+		justify-items: center;
+		padding-block: 1em;
+	}
+	.l-header .nav {
+		z-index: 2;
+		position: fixed;
+		inset: 0;
+		height: 100%;
+	}
+	.l-header .nav::before {
+		content: "";
+		z-index: -1;
+		position: fixed;
+		inset: 0;
+		background: var(--themecolor);
+		opacity: .1;
+		transition: opacity .4s;
+	}
+	.l-header .nav_list {
+		flex-direction: column;
+		row-gap: .3em;
+		overflow: auto;
+		position: absolute;
+		top: 0;
+		right: 0;
+		padding: 56px 2em;
+		background: white;
+		height: 100%;
+		clip-path: inset(0);
+	}
+	/* スクロールバーを消す */
+	.l-header .nav_list {
+		scrollbar-width: none;
+		scrollbar-color: transparent;
+		-webkit-overflow-scrolling: touch;
+	}
+	.l-header .nav_list::-webkit-scrollbar {
+		width: 0;
+		height: 0;
+	}
+	.l-header .nav_list::-webkit-scrollbar-thumb,
+	.l-header .nav_list::-webkit-scrollbar-track {
+		background: transparent;
+	}
+	.l-header .nav_list li {
+		display: grid;
+		grid-template-columns: auto auto 1fr;
+	}
+	/* JavaScript で .is-open を付けてドロワーする */
+	.l-header .nav_list.is-anim {
+		transition: clip-path .4s var(--easeInOut);
+	}
+	.l-header .nav:not(.is-open) {
+		pointer-events: none;
+	}
+	.l-header .nav:not(.is-open)::before {
+		opacity: 0;
+	}
+	.l-header .nav_list:not(.is-open) {
+		clip-path: inset(0 0 0 100%);
+	}
+	.l-header .nav_sub {
+		grid-area: 2 / 1 / 3 / 4;
+		overflow: hidden;
+		pointer-events: none;
+		height: 0;
+		padding: 2px;
+		padding-left: 1em;
+	}
+	.l-header .nav_sub {
+		--openHeight: calc(3em * 2 + 4px);
+	}
+	.l-header .nav_list [href="#news"] ~ .nav_sub,
+	.l-header .nav_list [href="#company"] ~ .nav_sub {
+		--openHeight: calc(3em * 3 + 4px);
+	}
+	.l-header .nav_list [href="#service"] ~ .nav_sub,
+	.l-header .nav_list [href="#blog"] ~ .nav_sub {
+		--openHeight: calc(3em * 4 + 4px);
+	}
+
+	/* カーソルを乗せるとドロップダウンする */
+	@media (hover) {
+		.l-header .nav_sub {
+			transition: height .4s var(--easeInOut);
+		}
+		.l-header .nav_list li:hover .nav_sub {
+			pointer-events: auto;
+			height: var(--openHeight);
+		}
+		.l-header .nav_list li:hover svg {
+			color: #86c0de;
+		}
+	}
+
+
+
+	/* JavaScript で .is-open を付けてドロップダウンする */
+	.l-header .nav_sub.is-anim {
+		transition: height .4s var(--easeInOut);
+	}
+	.l-header .nav_sub.is-open {
+		pointer-events: auto;
+		height: var(--openHeight);
+	}
+	.l-header .nav_list li.is-active svg {
+		color: #86c0de;
+	}
+
+}
+</style>

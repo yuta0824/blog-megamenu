@@ -23,8 +23,10 @@
   padding: 20px 5px;
 }
 
-.p-megaMenu.is-open .p-megaMenu__inner {
-  display: block;
+.p-megaMenu.is-open .p-megaMenu__navigation {
+  -webkit-clip-path: inset(0 -50vw);
+  clip-path: inset(0 -50vw);
+  visibility: visible;
 }
 
 .p-megaMenu.is-open .p-megaMenu__open::after {
@@ -49,17 +51,17 @@
   transition: rotate 0.3s;
 }
 
-.p-megaMenu__inner {
-  display: none;
+.p-megaMenu__navigation {
+  -webkit-clip-path: inset(0 -50vw 100%);
+  background: #eee;
+  clip-path: inset(0 -50vw 100%);
   left: 0;
+  padding: 20px;
   position: absolute;
   top: 100%;
+  transition: all 0.4s;
+  visibility: hidden;
   width: 100%;
-}
-
-.p-megaMenu__navigation {
-  background: #eee;
-  padding: 20px;
 }
 
 .p-megaMenu__list {
@@ -115,9 +117,11 @@
 }
 
 @media (min-width: 768px) and (hover: hover) {
-  .p-megaMenu:hover .p-megaMenu__inner,
-  .p-megaMenu:focus-within .p-megaMenu__inner {
-    display: block;
+  .p-megaMenu:hover .p-megaMenu__navigation,
+  .p-megaMenu:focus-within .p-megaMenu__navigation {
+    -webkit-clip-path: inset(0 -50vw);
+    clip-path: inset(0 -50vw);
+    visibility: visible;
   }
 
   .p-megaMenu:hover .p-megaMenu__open::after,

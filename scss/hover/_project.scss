@@ -32,8 +32,9 @@
 // .p-megaMenu
 .p-megaMenu {
 	@mixin megaMenuToggle() {
-		.p-megaMenu__inner {
-			display: block;
+		.p-megaMenu__navigation {
+			clip-path: inset(0 -50vw);
+			visibility: visible;
 		}
 
 		.p-megaMenu__open {
@@ -77,15 +78,14 @@
 	}
 }
 
-.p-megaMenu__inner {
+.p-megaMenu__navigation {
 	position: absolute;
 	top: 100%;
 	left: 0;
-	display: none;
 	width: 100%;
-}
-
-.p-megaMenu__navigation {
+	transition: all 0.4s;
+	clip-path: inset(0 -50vw 100%);
+	visibility: hidden;
 	padding: 20px;
 	background: #eee;
 

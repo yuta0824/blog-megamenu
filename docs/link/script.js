@@ -29,53 +29,64 @@ const isMobileDevice = () => {
 };
 
 /**
+ * body要素に適切なクラスを追加または削除します。
+ * タッチデバイスまたはモバイルデバイスである場合は `is-touch-or-mobile` を追加し、
+ * そうでない場合は `is-touch-or-mobile` を削除して `is-pc` を追加します。
+ */
+const updateBodyClass = () => {
+	if (isTouchDevice() || isMobileDevice()) {
+		document.body.classList.add("is-touch-or-mobile");
+		document.body.classList.remove("is-pc");
+	} else {
+		document.body.classList.remove("is-touch-or-mobile");
+		document.body.classList.add("is-pc");
+	}
+};
+
+// 初期読み込み時にもクラスを更新
+updateBodyClass();
+
+/**
+ * ウィンドウのリサイズイベントが発生したときに実行されます。
+ * 一定時間後（デバウンス後）に `updateBodyClass` 関数を実行して、
+ * デバイスの種類に応じてbody要素のクラスを更新します。
+ */
+let resizeTimer;
+window.addEventListener("resize", () => {
+	const delayMs = 200; // リサイズイベント後のデバウンス時間（ミリ秒）
+	clearTimeout(resizeTimer);
+	resizeTimer = setTimeout(updateBodyClass, delayMs);
+});
+
+
+/**
  * メガメニューの開閉を制御するイベントハンドラです。
  * @param {Event} e - クリックイベントオブジェクトです。
  */
 const menuToggleAction = (e) => {
-	if (!isTouchDevice() && !isMobileDevice()) {
-		return;
-	}
-
 	const button = e.currentTarget;
 	const currentMegaMenu = button.closest(".js-megaMenu");
 	const isOpened = currentMegaMenu.classList.contains(openClass);
 
+	// 他のメガメニューを閉じる処理
 	document.querySelectorAll(`.js-megaMenu.${openClass}`).forEach((megaMenu) => {
 		if (megaMenu !== currentMegaMenu) {
 			megaMenu.classList.remove(openClass);
+			// 他のボタンのaria-expanded属性をfalseに設定
+			megaMenu
+				.querySelector(".js-button-megaMenu")
+				.setAttribute("aria-expanded", "false");
 		}
 	});
 
+	// 現在のメガメニューの開閉状態を切り替え
 	currentMegaMenu.classList.toggle(openClass, !isOpened);
+
+	// aria-expanded属性の値を現在の状態に応じて設定
+	button.setAttribute("aria-expanded", String(!isOpened));
 };
 
 // 各メガメニューボタンにクリックイベントハンドラを設定します。
 megaMenuButtons.forEach((button) => {
 	button.addEventListener("click", menuToggleAction);
-});
-
-/**
- * すべてのメガメニューを閉じる関数。
- */
-const resetMegaMenu = () => {
-	const megaMenus = document.querySelectorAll(".js-megaMenu");
-	megaMenus.forEach((megaMenu) => {
-		megaMenu.classList.remove(openClass);
-	});
-};
-
-// 画面のリサイズイベントに応じて、特定の条件下でメガメニューをリセットする処理を設定します。
-let resizeTimer;
-window.addEventListener("resize", () => {
-	const delayMs = 200; // リサイズイベント後のデバウンス時間（ミリ秒）
-	clearTimeout(resizeTimer);
-	resizeTimer = setTimeout(() => {
-		if (
-			!isTouchDevice() &&
-			window.matchMedia(`(min-width: ${breakPoint}px)`).matches
-		) {
-			resetMegaMenu();
-		}
-	}, delayMs);
 });
