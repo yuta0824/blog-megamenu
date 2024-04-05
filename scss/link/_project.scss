@@ -2,10 +2,7 @@
 
 // Project
 //---------------------
-
 // .p-navigation-global
-.p-navigation-global {
-}
 
 .p-navigation-global__list {
 	display: flex;
@@ -18,21 +15,13 @@
 	}
 }
 
-.p-navigation-global__list-item {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-
-	a {
-		padding: 20px 5px;
-		font-weight: 700;
-	}
+.p-navigation-global__link {
+	padding: 20px 5px;
+	font-weight: 700;
 }
 
 // .p-megaMenu
 .p-megaMenu {
-	position: relative;
-
 	@mixin megaMenuToggle() {
 		.p-megaMenu__navigation {
 			clip-path: inset(0 -50vw);
@@ -40,9 +29,14 @@
 		}
 
 		.p-megaMenu__open {
-			&::after {
-				rotate: 180deg;
-			}
+			padding: 20px 5px 20px 15px;
+			rotate: 180deg;
+		}
+	}
+
+	@media (min-width: 768px) and (hover: hover) {
+		&:hover {
+			@include megaMenuToggle;
 		}
 	}
 
@@ -53,25 +47,32 @@
 
 .p-megaMenu__link {
 	position: relative;
+	padding: 20px 0 20px 10px;
+	font-weight: 700;
+	cursor: pointer;
+
 	&::after {
-		content: "";
-		width: calc(100% + 20px);
-		height: 100%;
-		display: block;
 		position: absolute;
 		top: 0;
 		left: 0;
-		border: 1px solid #000;
+		display: block;
+		width: calc(100% + 31px);
+		height: 100%;
+		cursor: pointer;
+		content: "";
 	}
 }
 
 .p-megaMenu__open {
-	margin-left: -0.3em;
+	position: relative;
+	z-index: -1;
+	padding: 20px 15px 20px 5px;
 	font-weight: 700;
-	padding: 20px 15px 22px 5px;
+	cursor: pointer;
+	transition: padding 0.3s, rotate 0.3s;
 
 	.is-touch-or-mobile & {
-		position: relative;
+		z-index: 2;
 	}
 }
 
@@ -80,11 +81,11 @@
 	top: 100%;
 	left: 0;
 	width: 100%;
-	transition: all 0.4s;
+	padding: 20px;
 	clip-path: inset(0 -50vw 100%);
 	visibility: hidden;
-	padding: 20px;
 	background: #eee;
+	transition: all 0.4s;
 
 	@include g.mq("md") {
 		padding: 40px;
@@ -93,23 +94,23 @@
 
 .p-megaMenu__list {
 	display: flex;
+	flex-direction: column;
 	gap: 0;
 	width: fit-content;
 	max-width: 600px;
 	margin-inline: auto;
-	flex-direction: column;
 
 	@include g.mq("md") {
-		gap: 10px 30px;
 		flex-direction: row;
+		gap: 10px 30px;
 	}
 }
 
 .p-megaMenu__list-item {
 	a {
 		display: inline-flex;
-		align-items: center;
 		gap: 0.5em;
+		align-items: center;
 		padding: 5px 10px;
 
 		@include g.mq("md") {

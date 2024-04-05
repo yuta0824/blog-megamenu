@@ -16,19 +16,9 @@
   justify-content: center;
 }
 
-.p-navigation-global__list-item {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-}
-
-.p-navigation-global__list-item a {
+.p-navigation-global__link {
   font-weight: 700;
   padding: 20px 5px;
-}
-
-.p-megaMenu {
-  position: relative;
 }
 
 .p-megaMenu.is-open .p-megaMenu__navigation {
@@ -37,33 +27,40 @@
   visibility: visible;
 }
 
-.p-megaMenu.is-open .p-megaMenu__open::after {
+.p-megaMenu.is-open .p-megaMenu__open {
+  padding: 20px 5px 20px 15px;
   rotate: 180deg;
 }
 
 .p-megaMenu__link {
+  cursor: pointer;
+  font-weight: 700;
+  padding: 20px 0 20px 10px;
   position: relative;
 }
 
 .p-megaMenu__link::after {
-  border: 1px solid #000;
   content: "";
+  cursor: pointer;
   display: block;
   height: 100%;
   left: 0;
   position: absolute;
   top: 0;
-  width: calc(100% + 20px);
+  width: calc(100% + 31px);
 }
 
 .p-megaMenu__open {
+  cursor: pointer;
   font-weight: 700;
-  margin-left: -0.3em;
-  padding: 20px 15px 22px 5px;
+  padding: 20px 15px 20px 5px;
+  position: relative;
+  transition: padding 0.3s, rotate 0.3s;
+  z-index: -1;
 }
 
 .is-touch-or-mobile .p-megaMenu__open {
-  position: relative;
+  z-index: 2;
 }
 
 .p-megaMenu__navigation {
@@ -120,5 +117,18 @@
 
   .p-megaMenu__list-item a {
     padding: 20px 20px;
+  }
+}
+
+@media (min-width: 768px) and (hover: hover) {
+  .p-megaMenu:hover .p-megaMenu__navigation {
+    -webkit-clip-path: inset(0 -50vw);
+    clip-path: inset(0 -50vw);
+    visibility: visible;
+  }
+
+  .p-megaMenu:hover .p-megaMenu__open {
+    padding: 20px 5px 20px 15px;
+    rotate: 180deg;
   }
 }
