@@ -22,6 +22,7 @@
 	a {
 		padding: 20px 5px;
 		font-weight: 700;
+		@include g.hover-link;
 
 		@include g.mq("md") {
 			padding: 20px 10px;

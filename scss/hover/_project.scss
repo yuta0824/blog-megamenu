@@ -26,6 +26,8 @@
 		@include g.mq("md") {
 			padding: 20px 10px;
 		}
+
+		@include g.hover-link;
 	}
 }
 

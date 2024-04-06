@@ -27,3 +27,12 @@
 		}
 	}
 }
+
+// ホバー
+@mixin hover-link() {
+	@media (hover: hover) {
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}

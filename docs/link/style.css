@@ -90,6 +90,7 @@
   gap: 0.5em;
   align-items: center;
   display: inline-flex;
+  font-weight: 700;
   padding: 5px 10px;
 }
 
@@ -130,5 +131,19 @@
   .p-megaMenu:hover .p-megaMenu__open {
     padding: 20px 5px 20px 15px;
     rotate: 180deg;
+  }
+}
+
+@media (hover: hover) {
+  .p-navigation-global__link:hover {
+    text-decoration: underline;
+  }
+
+  .p-megaMenu__link:hover {
+    text-decoration: underline;
+  }
+
+  .p-megaMenu__list-item a:hover {
+    text-decoration: underline;
   }
 }
