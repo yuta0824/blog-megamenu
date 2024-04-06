@@ -55,7 +55,6 @@
 	font-weight: 700;
 	line-height: 1;
 	cursor: pointer;
-	transition: opacity 0.3s;
 
 	@include g.mq("md") {
 		padding: 20px 10px;

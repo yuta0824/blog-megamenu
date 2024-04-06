@@ -45,7 +45,6 @@
   justify-content: center;
   line-height: 1;
   padding: 20px 5px;
-  transition: opacity 0.3s;
 }
 
 .p-megaMenu__open::after {
