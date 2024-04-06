@@ -10,15 +10,22 @@
 }
 
 .p-navigation-global__list {
-  gap: 15px;
+  gap: 10px;
   align-items: center;
   display: flex;
   justify-content: center;
+  white-space: nowrap;
 }
 
 .p-navigation-global__link {
   font-weight: 700;
   padding: 20px 5px;
+}
+
+.p-megaMenu {
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 
 .p-megaMenu.is-open .p-megaMenu__navigation {
@@ -35,7 +42,7 @@
 .p-megaMenu__link {
   cursor: pointer;
   font-weight: 700;
-  padding: 20px 0 20px 10px;
+  padding: 20px 0 20px 5px;
   position: relative;
 }
 
@@ -52,10 +59,13 @@
 
 .p-megaMenu__open {
   cursor: pointer;
+  display: block;
   font-weight: 700;
+  height: 100%;
   padding: 20px 15px 20px 5px;
   position: relative;
   transition: padding 0.3s, rotate 0.3s;
+  width: 40px;
   z-index: -1;
 }
 
@@ -105,6 +115,10 @@
 @media (min-width: 768px) {
   .p-navigation-global__list {
     gap: 40px;
+  }
+
+  .p-megaMenu__link {
+    padding: 20px 0 20px 10px;
   }
 
   .p-megaMenu__navigation {

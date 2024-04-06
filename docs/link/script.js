@@ -47,19 +47,6 @@ const updateBodyClass = () => {
 updateBodyClass();
 
 /**
- * ウィンドウのリサイズイベントが発生したときに実行されます。
- * 一定時間後（デバウンス後）に `updateBodyClass` 関数を実行して、
- * デバイスの種類に応じてbody要素のクラスを更新します。
- */
-let resizeTimer;
-window.addEventListener("resize", () => {
-	const delayMs = 200; // リサイズイベント後のデバウンス時間（ミリ秒）
-	clearTimeout(resizeTimer);
-	resizeTimer = setTimeout(updateBodyClass, delayMs);
-});
-
-
-/**
  * メガメニューの開閉を制御するイベントハンドラです。
  * @param {Event} e - クリックイベントオブジェクトです。
  */
@@ -89,4 +76,39 @@ const menuToggleAction = (e) => {
 // 各メガメニューボタンにクリックイベントハンドラを設定します。
 megaMenuButtons.forEach((button) => {
 	button.addEventListener("click", menuToggleAction);
+});
+
+/**
+ * すべてのメガメニューを閉じる関数。
+ */
+const resetMegaMenu = () => {
+	const megaMenus = document.querySelectorAll(".js-megaMenu");
+	megaMenus.forEach((megaMenu) => {
+		megaMenu.classList.remove(openClass);
+	});
+};
+
+/**
+ * ウィンドウのリサイズイベントが発生したときに実行されます。
+ * デバウンス機能により、イベントの発生から一定時間（200ミリ秒）後に以下の処理を行います：
+ *   1. `updateBodyClass`関数を実行して、デバイスの種類や画面のサイズに応じてbody要素のクラスを更新します。
+ *   2. デバイスがタッチデバイスではなく、かつ画面の幅が指定されたブレークポイント以上である場合に、
+ *      メガメニューをリセットする処理を実行します。
+ */
+let resizeTimer;
+window.addEventListener("resize", () => {
+	const delayMs = 200; // リサイズイベント後のデバウンス時間（ミリ秒）
+	clearTimeout(resizeTimer);
+	resizeTimer = setTimeout(() => {
+		// updateBodyClass関数の呼び出し
+		updateBodyClass();
+
+		// メガメニューのリセット条件を確認して、条件に合致する場合はリセットを実行
+		if (
+			!isTouchDevice() &&
+			window.matchMedia(`(min-width: ${breakPoint}px)`).matches
+		) {
+			resetMegaMenu();
+		}
+	}, delayMs);
 });

@@ -83,9 +83,24 @@ button {
 }
 
 .c-title {
-  font-size: 34px;
+  font-size: 22px;
   font-weight: 700;
+  line-height: 1.4;
+  padding-bottom: 0.5em;
+  position: relative;
   text-align: center;
+}
+
+.c-title::after {
+  background-color: #333;
+  border-radius: 50px;
+  bottom: 0;
+  content: "";
+  height: 3px;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+  width: 20%;
 }
 
 .p-nav-top {
@@ -112,6 +127,53 @@ button {
   text-decoration: underline;
 }
 
+.p-rule {
+  margin-inline: auto;
+  border: 1px solid #a7a7a7;
+  border-radius: 10px;
+  margin-top: 40px;
+  max-width: 600px;
+  padding: 16px 16px;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.p-rule__heading {
+  font-size: 18px;
+  font-weight: 700;
+  padding-left: 0.6em;
+  position: relative;
+}
+
+.p-rule__heading::after {
+  background-color: #333;
+  content: "";
+  height: 1em;
+  left: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+}
+
+.p-rule__list {
+  margin-top: 1em;
+}
+
+.p-rule__list-item {
+  line-height: 1.4;
+  list-style: disc;
+  margin-left: 1em;
+}
+
+.p-rule__list-item:not(:first-child) {
+  margin-top: 0.5em;
+}
+
+.u-inline-block {
+  display: inline-block !important;
+}
+
 @media (min-width: 768px) {
   body {
     font-size: 1rem;
@@ -120,5 +182,17 @@ button {
   .l-inner {
     padding-inline: 50px;
     max-width: 1160px;
+  }
+
+  .c-title {
+    font-size: 34px;
+  }
+
+  .p-rule {
+    padding: 20px 30px;
+  }
+
+  .p-rule__heading {
+    font-size: 20px;
   }
 }

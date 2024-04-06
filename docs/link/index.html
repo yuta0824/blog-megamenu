@@ -45,7 +45,18 @@
 	</header>
 	<div class="l-section">
 		<div class="l-inner">
-			<h1 class="c-title">オープントリガーがリンクのメガメニュー</h1>
+			<h1 class="c-title">オープントリガーがリンクの<span class="u-inline-block">メガメニュー</span></h1>
+			<div class="p-rule">
+				<h2 class="p-rule__heading">実装ルール</h2>
+				<ul class="p-rule__list">
+					<li class="p-rule__list-item">「当社について」や「お知らせ」など、メニューオープンのトリガーになる要素がaタグ</li>
+					<li class="p-rule__list-item">PCではホバーでメニューを展開</li>
+					<li class="p-rule__list-item">タッチデバイスと768px未満では、「&or;」をタップでメニューを展開し、「当社について」や「お知らせ」をタップでリンク先へ遷移</li>
+					<li class="p-rule__list-item">開いているメニューは1つまで</li>
+					<li class="p-rule__list-item">キーボード操作でもメニューを展開可能に</li>
+					<li class="p-rule__list-item">メニューが開いた状態で768pxを跨いだら、メニューを閉じる</li>
+				</ul>
+			</div>
 		</div>
 	</div>
 	<script src="./script.js" defer></script>

@@ -1,0 +1,49 @@
+@use "../global" as g;
+
+.p-rule {
+	width: fit-content;
+	max-width: 600px;
+	padding: 16px 16px;
+	margin-inline: auto;
+	margin-top: 40px;
+	border: 1px solid #a7a7a7;
+	border-radius: 10px;
+
+	@include g.mq("md") {
+		padding: 20px 30px;
+	}
+}
+
+.p-rule__heading {
+	position: relative;
+	padding-left: 0.6em;
+	font-size: 18px;
+	font-weight: 700;
+
+	&::after {
+		position: absolute;
+		top: 50%;
+		left: 0;
+		width: 3px;
+		height: 1em;
+		content: "";
+		background-color: #333;
+		transform: translateY(-50%);
+	}
+
+	@include g.mq("md") {
+		font-size: 20px;
+	}
+}
+.p-rule__list {
+	margin-top: 1em;
+}
+.p-rule__list-item {
+	margin-left: 1em;
+	line-height: 1.4;
+	list-style: disc;
+
+	&:not(:first-child) {
+		margin-top: 0.5em;
+	}
+}
