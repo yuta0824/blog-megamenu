@@ -84,7 +84,7 @@
 	padding: 20px;
 	clip-path: inset(0 -50vw 100%);
 	visibility: hidden;
-	background: #eee;
+	background-color: #d7d7d7;
 	transition: all 0.4s;
 
 	@include g.mq("md") {

@@ -2,8 +2,7 @@
 
 .l-header {
   padding-inline: 3%;
-  background-color: #fff;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #ababab;
   position: fixed;
   top: 0;
   width: 100%;
@@ -56,7 +55,7 @@
 
 .p-megaMenu__navigation {
   -webkit-clip-path: inset(0 -50vw 100%);
-  background: #eee;
+  background-color: #d7d7d7;
   clip-path: inset(0 -50vw 100%);
   left: 0;
   padding: 20px;
