@@ -4,11 +4,14 @@
   padding-inline: 3%;
   background-color: #fff;
   border-bottom: 1px solid #eee;
-  position: relative;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 100;
+}
+
+.l-header + * {
+  margin-top: 60px;
 }
 
 .p-navigation-global__list {
