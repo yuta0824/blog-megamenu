@@ -2,11 +2,17 @@
 
 .p-nav-top {
 	min-width: 250px;
-	padding: 20px 60px;
-	margin-top: 1em;
-	text-align: center;
+	padding: 20px 20px;
+	margin-top: 2em;
 	background-color: g.$cr-bg-gray;
 	border-radius: 4px;
+	width: fit-content;
+	margin-inline: auto;
+
+	@include g.mq("md") {
+		margin-top: 4em;
+		padding: 20px 40px;
+	}
 }
 
 .p-nav-top__title {

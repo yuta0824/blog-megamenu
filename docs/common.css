@@ -104,12 +104,14 @@ button {
 }
 
 .p-nav-top {
+  margin-inline: auto;
   background-color: #e6e6e6;
   border-radius: 4px;
-  margin-top: 1em;
+  margin-top: 2em;
   min-width: 250px;
-  padding: 20px 60px;
-  text-align: center;
+  padding: 20px 20px;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 .p-nav-top__title {
@@ -186,6 +188,11 @@ button {
 
   .c-title {
     font-size: 34px;
+  }
+
+  .p-nav-top {
+    margin-top: 4em;
+    padding: 20px 40px;
   }
 
   .p-rule {
