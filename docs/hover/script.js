@@ -12,12 +12,12 @@ const openClass = "is-open";
  * @returns {boolean} タッチ対応の場合はtrue、そうでない場合はfalseを返します。
  */
 const isTouchDevice = () => {
-	return (
-		"ontouchstart" in window ||
-		navigator.maxTouchPoints > 0 ||
-		navigator.msMaxTouchPoints > 0 ||
-		window.matchMedia("(pointer: coarse)").matches
-	);
+  return (
+    "ontouchstart" in window ||
+    navigator.maxTouchPoints > 0 ||
+    navigator.msMaxTouchPoints > 0 ||
+    window.matchMedia("(pointer: coarse)").matches
+  );
 };
 
 /**
@@ -25,7 +25,7 @@ const isTouchDevice = () => {
  * @returns {boolean} モバイルデバイスの場合はtrue、そうでない場合はfalseを返します。
  */
 const isMobileDevice = () => {
-	return window.matchMedia(`(max-width: ${breakPoint}px)`).matches;
+  return window.matchMedia(`(max-width: ${breakPoint}px)`).matches;
 };
 
 /**
@@ -33,49 +33,49 @@ const isMobileDevice = () => {
  * @param {Event} e - クリックイベントオブジェクトです。
  */
 const menuToggleAction = (e) => {
-	if (!isTouchDevice() && !isMobileDevice()) {
-		return;
-	}
+  if (!isTouchDevice() && !isMobileDevice()) {
+    return;
+  }
 
-	const button = e.currentTarget;
-	const currentMegaMenu = button.closest(".js-megaMenu");
-	const isOpened = currentMegaMenu.classList.contains(openClass);
+  const button = e.currentTarget;
+  const currentMegaMenu = button.closest(".js-megaMenu");
+  const isOpened = currentMegaMenu.classList.contains(openClass);
 
-	document.querySelectorAll(`.js-megaMenu.${openClass}`).forEach((megaMenu) => {
-		if (megaMenu !== currentMegaMenu) {
-			megaMenu.classList.remove(openClass);
-		}
-	});
+  document.querySelectorAll(`.js-megaMenu.${openClass}`).forEach((megaMenu) => {
+    if (megaMenu !== currentMegaMenu) {
+      megaMenu.classList.remove(openClass);
+    }
+  });
 
-	currentMegaMenu.classList.toggle(openClass, !isOpened);
+  currentMegaMenu.classList.toggle(openClass, !isOpened);
 };
 
 // 各メガメニューボタンにクリックイベントハンドラを設定します。
 megaMenuButtons.forEach((button) => {
-	button.addEventListener("click", menuToggleAction);
+  button.addEventListener("click", menuToggleAction);
 });
 
 /**
  * すべてのメガメニューを閉じる関数。
  */
 const resetMegaMenu = () => {
-	const megaMenus = document.querySelectorAll(".js-megaMenu");
-	megaMenus.forEach((megaMenu) => {
-		megaMenu.classList.remove(openClass);
-	});
+  const megaMenus = document.querySelectorAll(".js-megaMenu");
+  megaMenus.forEach((megaMenu) => {
+    megaMenu.classList.remove(openClass);
+  });
 };
 
 // 画面のリサイズイベントに応じて、特定の条件下でメガメニューをリセットする処理を設定します。
 let resizeTimer;
 window.addEventListener("resize", () => {
-	const delayMs = 200; // リサイズイベント後のデバウンス時間（ミリ秒）
-	clearTimeout(resizeTimer);
-	resizeTimer = setTimeout(() => {
-		if (
-			!isTouchDevice() &&
-			window.matchMedia(`(min-width: ${breakPoint}px)`).matches
-		) {
-			resetMegaMenu();
-		}
-	}, delayMs);
+  const delayMs = 200; // リサイズイベント後のデバウンス時間（ミリ秒）
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(() => {
+    if (
+      !isTouchDevice() &&
+      window.matchMedia(`(min-width: ${breakPoint}px)`).matches
+    ) {
+      resetMegaMenu();
+    }
+  }, delayMs);
 });

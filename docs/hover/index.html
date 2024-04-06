@@ -2,64 +2,64 @@
 <html lang="ja">
 
 <head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Hoverで展開するメガメニュー</title>
-	<link rel="stylesheet" href="../common.css" />
-	<link rel="stylesheet" href="./style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hoverで展開するメガメニュー</title>
+  <link rel="stylesheet" href="../common.css" />
+  <link rel="stylesheet" href="./style.css" />
 </head>
 
 <body>
-	<header class="l-header">
-		<nav class="p-navigation-global" aria-label="グローバルメニュー">
-			<ul class="p-navigation-global__list">
-				<li class="js-megaMenu p-navigation-global__list-item p-megaMenu">
-					<button type="button" class="js-button-megaMenu p-megaMenu__open">当社について</button>
-					<div class="p-megaMenu__inner">
-						<nav id="menu1" class="p-megaMenu__navigation" aria-label="当社についてのサブメニュー">
-							<ul class="p-megaMenu__list">
-								<li class="p-megaMenu__list-item"><a href="#">会社概要</a></li>
-								<li class="p-megaMenu__list-item"><a href="#">代表挨拶</a></li>
-								<li class="p-megaMenu__list-item"><a href="#">沿革</a></li>
-							</ul>
-						</nav>
-					</div>
-				</li>
-				<li class="js-megaMenu p-navigation-global__list-item p-megaMenu">
-					<button type="button" class="js-button-megaMenu p-megaMenu__open" aria-expanded="false"
-						aria-controls="menu2">お知らせ</button>
-					<nav id="menu2" class="p-megaMenu__navigation" aria-label="お知らせのサブメニュー">
-						<ul class="p-megaMenu__list">
-							<li class="p-megaMenu__list-item"><a href="#">お知らせ一覧</a></li>
-							<li class="p-megaMenu__list-item"><a href="#">ニュースリリース</a></li>
-							<li class="p-megaMenu__list-item"><a href="#">採用情報</a></li>
-						</ul>
-					</nav>
-				</li>
-				<li class="p-navigation-global__list-item">
-					<a class="p-navigation-global__link" href="#">お問い合わせ</a>
-				</li>
-			</ul>
-		</nav>
-	</header>
-	<div class="l-section">
-		<div class="l-inner">
-			<h1 class="c-title">Hoverで展開するメガメニュー</h1>
-			<div class="p-rule">
-				<h2 class="p-rule__heading">実装ルール</h2>
-				<ul class="p-rule__list">
-					<li class="p-rule__list-item">PCではホバーでメニューを展開</li>
-					<li class="p-rule__list-item">タッチデバイスではタップでメニューを展開</li>
-					<li class="p-rule__list-item">768px未満ではタップでメニューを展開</li>
-					<li class="p-rule__list-item">開いているメニューは1つまで</li>
-					<li class="p-rule__list-item">キーボード操作フォーカスでメニューを展開</li>
-					<li class="p-rule__list-item">メニューが開いた状態で768pxを跨いだら、<br>メニューを閉じる</li>
-				</ul>
-			</div>
-		</div>
-	</div>
+  <header class="l-header">
+    <nav class="p-navigation-global" aria-label="グローバルメニュー">
+      <ul class="p-navigation-global__list">
+        <li class="js-megaMenu p-navigation-global__list-item p-megaMenu">
+          <button type="button" class="js-button-megaMenu p-megaMenu__open">当社について</button>
+          <div class="p-megaMenu__inner">
+            <nav id="menu1" class="p-megaMenu__navigation" aria-label="当社についてのサブメニュー">
+              <ul class="p-megaMenu__list">
+                <li class="p-megaMenu__list-item"><a href="#">会社概要</a></li>
+                <li class="p-megaMenu__list-item"><a href="#">代表挨拶</a></li>
+                <li class="p-megaMenu__list-item"><a href="#">沿革</a></li>
+              </ul>
+            </nav>
+          </div>
+        </li>
+        <li class="js-megaMenu p-navigation-global__list-item p-megaMenu">
+          <button type="button" class="js-button-megaMenu p-megaMenu__open" aria-expanded="false"
+            aria-controls="menu2">お知らせ</button>
+          <nav id="menu2" class="p-megaMenu__navigation" aria-label="お知らせのサブメニュー">
+            <ul class="p-megaMenu__list">
+              <li class="p-megaMenu__list-item"><a href="#">お知らせ一覧</a></li>
+              <li class="p-megaMenu__list-item"><a href="#">ニュースリリース</a></li>
+              <li class="p-megaMenu__list-item"><a href="#">採用情報</a></li>
+            </ul>
+          </nav>
+        </li>
+        <li class="p-navigation-global__list-item">
+          <a class="p-navigation-global__link" href="#">お問い合わせ</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <div class="l-section">
+    <div class="l-inner">
+      <h1 class="c-title">Hoverで展開するメガメニュー</h1>
+      <div class="p-rule">
+        <h2 class="p-rule__heading">実装ルール</h2>
+        <ul class="p-rule__list">
+          <li class="p-rule__list-item">PCではホバーでメニューを展開</li>
+          <li class="p-rule__list-item">タッチデバイスではタップでメニューを展開</li>
+          <li class="p-rule__list-item">768px未満ではタップでメニューを展開</li>
+          <li class="p-rule__list-item">開いているメニューは1つまで</li>
+          <li class="p-rule__list-item">キーボード操作フォーカスでメニューを展開</li>
+          <li class="p-rule__list-item">メニューが開いた状態で768pxを跨いだら、<br>メニューを閉じる</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
-	<script src="./script.js" defer></script>
+  <script src="./script.js" defer></script>
 </body>
 
 </html>

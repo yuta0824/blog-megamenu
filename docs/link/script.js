@@ -12,12 +12,12 @@ const openClass = "is-open";
  * @returns {boolean} タッチ対応の場合はtrue、そうでない場合はfalseを返します。
  */
 const isTouchDevice = () => {
-	return (
-		"ontouchstart" in window ||
-		navigator.maxTouchPoints > 0 ||
-		navigator.msMaxTouchPoints > 0 ||
-		window.matchMedia("(pointer: coarse)").matches
-	);
+  return (
+    "ontouchstart" in window ||
+    navigator.maxTouchPoints > 0 ||
+    navigator.msMaxTouchPoints > 0 ||
+    window.matchMedia("(pointer: coarse)").matches
+  );
 };
 
 /**
@@ -25,7 +25,7 @@ const isTouchDevice = () => {
  * @returns {boolean} モバイルデバイスの場合はtrue、そうでない場合はfalseを返します。
  */
 const isMobileDevice = () => {
-	return window.matchMedia(`(max-width: ${breakPoint}px)`).matches;
+  return window.matchMedia(`(max-width: ${breakPoint}px)`).matches;
 };
 
 /**
@@ -34,13 +34,13 @@ const isMobileDevice = () => {
  * そうでない場合は `is-touch-or-mobile` を削除して `is-pc` を追加します。
  */
 const updateBodyClass = () => {
-	if (isTouchDevice() || isMobileDevice()) {
-		document.body.classList.add("is-touch-or-mobile");
-		document.body.classList.remove("is-pc");
-	} else {
-		document.body.classList.remove("is-touch-or-mobile");
-		document.body.classList.add("is-pc");
-	}
+  if (isTouchDevice() || isMobileDevice()) {
+    document.body.classList.add("is-touch-or-mobile");
+    document.body.classList.remove("is-pc");
+  } else {
+    document.body.classList.remove("is-touch-or-mobile");
+    document.body.classList.add("is-pc");
+  }
 };
 
 // 初期読み込み時にもクラスを更新
@@ -51,41 +51,41 @@ updateBodyClass();
  * @param {Event} e - クリックイベントオブジェクトです。
  */
 const menuToggleAction = (e) => {
-	const button = e.currentTarget;
-	const currentMegaMenu = button.closest(".js-megaMenu");
-	const isOpened = currentMegaMenu.classList.contains(openClass);
+  const button = e.currentTarget;
+  const currentMegaMenu = button.closest(".js-megaMenu");
+  const isOpened = currentMegaMenu.classList.contains(openClass);
 
-	// 他のメガメニューを閉じる処理
-	document.querySelectorAll(`.js-megaMenu.${openClass}`).forEach((megaMenu) => {
-		if (megaMenu !== currentMegaMenu) {
-			megaMenu.classList.remove(openClass);
-			// 他のボタンのaria-expanded属性をfalseに設定
-			megaMenu
-				.querySelector(".js-button-megaMenu")
-				.setAttribute("aria-expanded", "false");
-		}
-	});
+  // 他のメガメニューを閉じる処理
+  document.querySelectorAll(`.js-megaMenu.${openClass}`).forEach((megaMenu) => {
+    if (megaMenu !== currentMegaMenu) {
+      megaMenu.classList.remove(openClass);
+      // 他のボタンのaria-expanded属性をfalseに設定
+      megaMenu
+        .querySelector(".js-button-megaMenu")
+        .setAttribute("aria-expanded", "false");
+    }
+  });
 
-	// 現在のメガメニューの開閉状態を切り替え
-	currentMegaMenu.classList.toggle(openClass, !isOpened);
+  // 現在のメガメニューの開閉状態を切り替え
+  currentMegaMenu.classList.toggle(openClass, !isOpened);
 
-	// aria-expanded属性の値を現在の状態に応じて設定
-	button.setAttribute("aria-expanded", String(!isOpened));
+  // aria-expanded属性の値を現在の状態に応じて設定
+  button.setAttribute("aria-expanded", String(!isOpened));
 };
 
 // 各メガメニューボタンにクリックイベントハンドラを設定します。
 megaMenuButtons.forEach((button) => {
-	button.addEventListener("click", menuToggleAction);
+  button.addEventListener("click", menuToggleAction);
 });
 
 /**
  * すべてのメガメニューを閉じる関数。
  */
 const resetMegaMenu = () => {
-	const megaMenus = document.querySelectorAll(".js-megaMenu");
-	megaMenus.forEach((megaMenu) => {
-		megaMenu.classList.remove(openClass);
-	});
+  const megaMenus = document.querySelectorAll(".js-megaMenu");
+  megaMenus.forEach((megaMenu) => {
+    megaMenu.classList.remove(openClass);
+  });
 };
 
 /**
@@ -97,18 +97,18 @@ const resetMegaMenu = () => {
  */
 let resizeTimer;
 window.addEventListener("resize", () => {
-	const delayMs = 200; // リサイズイベント後のデバウンス時間（ミリ秒）
-	clearTimeout(resizeTimer);
-	resizeTimer = setTimeout(() => {
-		// updateBodyClass関数の呼び出し
-		updateBodyClass();
+  const delayMs = 200; // リサイズイベント後のデバウンス時間（ミリ秒）
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(() => {
+    // updateBodyClass関数の呼び出し
+    updateBodyClass();
 
-		// メガメニューのリセット条件を確認して、条件に合致する場合はリセットを実行
-		if (
-			!isTouchDevice() &&
-			window.matchMedia(`(min-width: ${breakPoint}px)`).matches
-		) {
-			resetMegaMenu();
-		}
-	}, delayMs);
+    // メガメニューのリセット条件を確認して、条件に合致する場合はリセットを実行
+    if (
+      !isTouchDevice() &&
+      window.matchMedia(`(min-width: ${breakPoint}px)`).matches
+    ) {
+      resetMegaMenu();
+    }
+  }, delayMs);
 });
