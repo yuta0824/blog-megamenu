@@ -72,7 +72,6 @@ window.addEventListener("resize", () => {
   clearTimeout(resizeTimer);
   resizeTimer = setTimeout(() => {
     if (
-      !isTouchDevice() &&
       window.matchMedia(`(min-width: ${breakPoint}px)`).matches
     ) {
       resetMegaMenu();

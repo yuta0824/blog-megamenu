@@ -105,7 +105,6 @@ window.addEventListener("resize", () => {
 
     // メガメニューのリセット条件を確認して、条件に合致する場合はリセットを実行
     if (
-      !isTouchDevice() &&
       window.matchMedia(`(min-width: ${breakPoint}px)`).matches
     ) {
       resetMegaMenu();
