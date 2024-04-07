@@ -1,0 +1,26 @@
+.c-title {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.4;
+  padding-bottom: 0.5em;
+  position: relative;
+  text-align: center;
+}
+
+.c-title::after {
+  background-color: #333;
+  border-radius: 50px;
+  bottom: 0;
+  content: "";
+  height: 3px;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+  width: 3em;
+}
+
+@media (min-width: 768px) {
+  .c-title {
+    font-size: 34px;
+  }
+}
